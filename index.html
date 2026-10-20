@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Service desk queue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Service desk</h1>
+    <p class="lede">New customers join the back of the line and are called from the front. Priority customers are called first. Each counter only serves the services it is staffed for.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="counters-h">
+      <h2 id="counters-h">Counters</h2>
+      <div id="counters" class="counters"></div>
+    </section>
+
+    <div class="two-col">
+      <section class="panel" aria-labelledby="issue-h">
+        <h2 id="issue-h">Take a ticket</h2>
+        <form id="ticket-form">
+          <label for="name">Name</label>
+          <input id="name" type="text" maxlength="30" placeholder="Customer name" autocomplete="off">
+
+          <label for="service">Service</label>
+          <select id="service"></select>
+
+          <label class="check" for="priority">
+            <input id="priority" type="checkbox">
+            Priority customer (for example elderly or disabled)
+          </label>
+
+          <div class="actions">
+            <button type="submit" class="primary">Take ticket</button>
+            <button type="button" id="random">Add 5 random customers</button>
+          </div>
+        </form>
+        <p id="message" class="message" role="status"></p>
+      </section>
+
+      <section class="panel" aria-labelledby="line-h">
+        <h2 id="line-h">Waiting line <span id="line-count" class="count"></span></h2>
+        <p class="note">Shown with priority customers first, then by arrival.</p>
+        <ol id="line" class="line"></ol>
+      </section>
+    </div>
+
+    <section aria-labelledby="stats-h">
+      <h2 id="stats-h">Statistics</h2>
+      <dl id="stats" class="stats"></dl>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
